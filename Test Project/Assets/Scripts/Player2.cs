@@ -17,7 +17,7 @@ public class Player2 : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Vertical") * turningSpeed * Time.deltaTime;
         transform.Rotate(0, horizontal * 2, 0);
@@ -27,8 +27,10 @@ public class Player2 : MonoBehaviour {
 
         if (Input.GetKey("up"))
         {
-            charge += 1;
-            //rb.AddForce(transform.forward * thrust);
+            if (charge < 200)
+            {
+                charge += 1;
+            }
         }
         if (Input.GetKeyUp("up"))
         {

@@ -8,7 +8,10 @@ public class Player : MonoBehaviour {
     private float movementSpeed = 10;
     public float turningSpeed = 60;
     public float thrust;
+
+    [Range(0, 200f)]
     public float charge;
+
     public Rigidbody rb;
     public Slider boostSlider;
 
@@ -16,7 +19,7 @@ public class Player : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal") * turningSpeed * Time.deltaTime;
         transform.Rotate(0, horizontal * 2, 0);
@@ -26,7 +29,11 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKey("e"))
         {
-            charge += 1;
+            if (charge < 200)
+            {
+                charge += 1;
+            }
+            
             //rb.AddForce(transform.forward * thrust);
         }
         if (Input.GetKeyUp("e"))
