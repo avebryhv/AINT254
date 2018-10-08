@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour {
+public class Player2 : MonoBehaviour {
 
     private float movementSpeed = 10;
     public float turningSpeed = 60;
@@ -12,32 +12,37 @@ public class Player : MonoBehaviour {
     public Rigidbody rb;
     public Slider boostSlider;
 
-    void Start() {
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal") * turningSpeed * Time.deltaTime;
+        float horizontal = Input.GetAxis("Vertical") * turningSpeed * Time.deltaTime;
         transform.Rotate(0, horizontal * 2, 0);
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         //float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         //transform.Translate(0, 0, vertical);
 
-        if (Input.GetKey("e"))
+        if (Input.GetKey("up"))
         {
             charge += 1;
             //rb.AddForce(transform.forward * thrust);
         }
-        if (Input.GetKeyUp("e"))
+        if (Input.GetKeyUp("up"))
         {
             rb.AddForce(transform.forward * charge * thrust);
             charge = 0;
         }
+
         if (transform.position.y < -5)
         {
             transform.position = new Vector3(0, 5, 0);
         }
+
+
+
         boostSlider.value = charge;
 
     }
