@@ -6,6 +6,7 @@ public class FollowCamera : MonoBehaviour {
 
     public GameObject target;
     public float damping = 1;
+    public bool p2 = false;
     Vector3 offset;
 
     void Start()
@@ -18,6 +19,11 @@ public class FollowCamera : MonoBehaviour {
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = target.transform.eulerAngles.y;
         float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime * damping);
+
+        if (p2)
+        {
+            angle += 180f;
+        }
 
         Quaternion rotation = Quaternion.Euler(0, angle, 0);
         transform.position = target.transform.position - (rotation * offset);

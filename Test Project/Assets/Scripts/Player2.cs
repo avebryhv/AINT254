@@ -21,7 +21,7 @@ public class Player2 : MonoBehaviour {
     {
         float horizontal = Input.GetAxis("Vertical") * turningSpeed * Time.deltaTime;
         transform.Rotate(0, horizontal * 2, 0);
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         //float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         //transform.Translate(0, 0, vertical);
 
