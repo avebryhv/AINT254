@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         float horizontal = Input.GetAxis("Horizontal") * turningSpeed * Time.deltaTime;
         transform.Rotate(0, horizontal * 2, 0);
