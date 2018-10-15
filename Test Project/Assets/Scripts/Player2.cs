@@ -55,7 +55,7 @@ public class Player2 : MonoBehaviour {
     {
         if (other.gameObject.tag == "jump_Panel")
         {
-            rb.AddForce(transform.up * 3000);
+            rb.AddForce(transform.up * 2000);
         }
     }
 }
