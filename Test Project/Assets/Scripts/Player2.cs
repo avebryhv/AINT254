@@ -11,6 +11,7 @@ public class Player2 : MonoBehaviour {
     public float charge;
     public Rigidbody rb;
     public Slider boostSlider;
+    public int score = 0;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class Player2 : MonoBehaviour {
         if (transform.position.y < -5)
         {
             transform.position = new Vector3(0, 5, 0);
+            score++;
         }
 
 

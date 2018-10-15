@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     private float movementSpeed = 10;
     public float turningSpeed = 60;
     public float thrust;
+    public int score = 0;
 
     [Range(0, 200f)]
     public float charge;
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour {
         //float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         //transform.Translate(0, 0, vertical);
 
-        if (Input.GetKey("e"))
+        if (Input.GetKey("w"))
         {
             if (charge < 200)
             {
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour {
             
             //rb.AddForce(transform.forward * thrust);
         }
-        if (Input.GetKeyUp("e"))
+        if (Input.GetKeyUp("w"))
         {
             rb.AddForce(transform.forward * charge * thrust);
             charge = 0;
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour {
         if (transform.position.y < -5)
         {
             transform.position = new Vector3(0, 5, 0);
+            score++;
         }
         boostSlider.value = charge;
 
