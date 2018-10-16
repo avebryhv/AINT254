@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
         {
             if (charge < 200)
             {
-                charge += 1;
+                charge += 1 * Time.deltaTime * 120;
             }
             
             //rb.AddForce(transform.forward * thrust);
