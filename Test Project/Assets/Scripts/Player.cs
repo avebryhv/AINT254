@@ -45,6 +45,9 @@ public class Player : MonoBehaviour {
         if (transform.position.y < -5)
         {
             transform.position = new Vector3(0, 5, 0);
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            charge = 0;
             score++;
         }
         boostSlider.value = charge;

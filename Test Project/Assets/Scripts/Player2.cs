@@ -33,7 +33,7 @@ public class Player2 : MonoBehaviour {
 
     void Update()
     {
-        if (AI)
+        if (AI) //Sets behaviour of computer controlled player
         {
             //Vector3.RotateTowards(transform.right, player1.transform.position, turningSpeed * Time.deltaTime, 0.0f);
             //Quaternion.RotateTowards(transform.rotation, player1.transform, turningSpeed * Time.deltaTime);
@@ -45,7 +45,7 @@ public class Player2 : MonoBehaviour {
             if (charge > chargeLimit)
             {
                 rb.AddForce(transform.forward * charge * thrust);
-                charge = 0;
+                charge = -60;
                 chargeLimit = Random.Range(60, 100);
             }
         }
@@ -76,6 +76,9 @@ public class Player2 : MonoBehaviour {
         if (transform.position.y < -5)
         {
             transform.position = new Vector3(0, 5, 0);
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            charge = 0;
             score++;
         }
 
