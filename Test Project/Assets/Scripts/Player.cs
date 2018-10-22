@@ -50,6 +50,10 @@ public class Player : MonoBehaviour {
             charge = 0;
             score++;
         }
+        if (Input.GetKeyDown("s"))
+        {
+            charge = 0;
+        }
         boostSlider.value = charge;
 
     }
