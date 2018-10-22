@@ -15,15 +15,25 @@ public class MainMenu : MonoBehaviour {
 		
 	}
 
+    public void Menu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void OnePlayer()
     {
         PlayerPrefs.SetInt("Players", 1);
-        SceneManager.LoadScene("CircleArena");
+        CircleArena();
     }
 
     public void TwoPlayer()
     {
         PlayerPrefs.SetInt("Players", 2);
+        CircleArena();
+    }
+
+    public void CircleArena()
+    {
         SceneManager.LoadScene("CircleArena");
     }
 }
