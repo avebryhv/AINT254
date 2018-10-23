@@ -13,6 +13,9 @@ public class Player2 : MonoBehaviour {
     public Slider boostSlider;
     public int score = 0;
 
+    public float V;
+    public Camera p2Cam;
+
     //AI only variables
     public bool AI = false;
     public GameObject player1;
@@ -82,7 +85,15 @@ public class Player2 : MonoBehaviour {
             score++;
         }
 
-
+        V = rb.velocity.magnitude;
+        if (V >= 30)
+        {
+            p2Cam.fieldOfView = Mathf.Lerp(p2Cam.fieldOfView, 60 + V - 30, Time.deltaTime);
+        }
+        else
+        {
+            p2Cam.fieldOfView = Mathf.Lerp(p2Cam.fieldOfView, 60, Time.deltaTime);
+        }
 
         boostSlider.value = charge;
 
