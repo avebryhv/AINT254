@@ -12,7 +12,6 @@ public class Player2 : MonoBehaviour {
     public Rigidbody rb;
     public Slider boostSlider;
     public int score = 0;
-
     public float V;
     public Camera p2Cam;
 

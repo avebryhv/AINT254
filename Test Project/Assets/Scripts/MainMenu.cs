@@ -36,4 +36,9 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene("CircleArena");
     }
+
+    public void HoleArena()
+    {
+        SceneManager.LoadScene("HoleArena");
+    }
 }

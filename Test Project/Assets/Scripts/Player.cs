@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
         //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         //float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         //transform.Translate(0, 0, vertical);
-        
+
         if (Input.GetKey("w"))
         {
             if (charge < 200)
@@ -56,15 +56,17 @@ public class Player : MonoBehaviour {
         {
             charge = 0;
         }
+
         V = rb.velocity.magnitude;
         if (V >= 30)
-        {            
+        {
             p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60 + V - 30, Time.deltaTime);
         }
         else
         {
             p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60, Time.deltaTime);
         }
+
         boostSlider.value = charge;
 
     }
