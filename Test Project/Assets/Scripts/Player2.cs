@@ -14,6 +14,7 @@ public class Player2 : MonoBehaviour {
     public int score = 0;
     public float V;
     public Camera p2Cam;
+    public ParticleSystem fire;
 
     //AI only variables
     public bool AI = false;
@@ -88,10 +89,12 @@ public class Player2 : MonoBehaviour {
         if (V >= 30)
         {
             p2Cam.fieldOfView = Mathf.Lerp(p2Cam.fieldOfView, 60 + V - 30, Time.deltaTime);
+            fire.Play();
         }
         else
         {
             p2Cam.fieldOfView = Mathf.Lerp(p2Cam.fieldOfView, 60, Time.deltaTime);
+            fire.Stop();
         }
 
         boostSlider.value = charge;

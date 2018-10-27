@@ -23,7 +23,7 @@ public class UI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Time.timeScale = 1;
-        gameTime = startTime;
+        gameTime = PlayerPrefs.GetInt("TimeLimit");
         p1Score.text = "0";
         p2Score.text = "0";
         timeText.text = gameTime.ToString();

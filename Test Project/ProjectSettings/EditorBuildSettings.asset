@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CircleArena.unity
     guid: 8e03c0525cc5eb64fa00153365def53d
+  - enabled: 1
+    path: Assets/Scenes/Rules Select.unity
+    guid: b0124525346455a4f80ae4a9919560c8
+  - enabled: 1
+    path: Assets/Scenes/HoleArena.unity
+    guid: 835e7d2c828836544a5df2961e536945
   m_configObjects: {}

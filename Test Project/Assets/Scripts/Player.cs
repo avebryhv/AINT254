@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     public Slider boostSlider;
     public float V;
     public Camera p1Cam;
+    public ParticleSystem fire;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -61,10 +62,12 @@ public class Player : MonoBehaviour {
         if (V >= 30)
         {
             p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60 + V - 30, Time.deltaTime);
+            fire.Play();
         }
         else
         {
             p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60, Time.deltaTime);
+            fire.Stop();
         }
 
         boostSlider.value = charge;

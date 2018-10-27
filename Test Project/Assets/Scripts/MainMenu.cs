@@ -23,13 +23,13 @@ public class MainMenu : MonoBehaviour {
     public void OnePlayer()
     {
         PlayerPrefs.SetInt("Players", 1);
-        CircleArena();
+        RulesSelect();
     }
 
     public void TwoPlayer()
     {
         PlayerPrefs.SetInt("Players", 2);
-        CircleArena();
+        RulesSelect();
     }
 
     public void CircleArena()
@@ -40,5 +40,10 @@ public class MainMenu : MonoBehaviour {
     public void HoleArena()
     {
         SceneManager.LoadScene("HoleArena");
+    }
+
+    public void RulesSelect()
+    {
+        SceneManager.LoadScene("Rules Select");
     }
 }
