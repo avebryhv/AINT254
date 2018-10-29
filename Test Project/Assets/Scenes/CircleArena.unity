@@ -113,11 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!198 &56454782 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 198889796350104798, guid: 9ca950e246a9935469321fd32508822a,
-    type: 2}
-  m_PrefabInternal: {fileID: 274074266}
 --- !u!1001 &102367594
 Prefab:
   m_ObjectHideFlags: 0
@@ -277,21 +272,6 @@ Prefab:
       propertyPath: player1
       value: 
       objectReference: {fileID: 1588826584}
-    - target: {fileID: 114477474128252184, guid: 9ca950e246a9935469321fd32508822a,
-        type: 2}
-      propertyPath: fire
-      value: 
-      objectReference: {fileID: 56454782}
-    - target: {fileID: 114323225693159724, guid: 9ca950e246a9935469321fd32508822a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114323225693159724, guid: 9ca950e246a9935469321fd32508822a,
-        type: 2}
-      propertyPath: turnSpeed
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ca950e246a9935469321fd32508822a, type: 2}
   m_IsPrefabParent: 0
@@ -617,16 +597,6 @@ Camera:
   m_PrefabParentObject: {fileID: 20955135494344094, guid: f8393e1debdfa95429cc83088d205bab,
     type: 2}
   m_PrefabInternal: {fileID: 160710470}
---- !u!1 &1078604995 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1487170609373254, guid: a9f444d8742d93b4c82f33b829677308,
-    type: 2}
-  m_PrefabInternal: {fileID: 2112979131}
---- !u!198 &1078604998 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 198326464413497322, guid: a9f444d8742d93b4c82f33b829677308,
-    type: 2}
-  m_PrefabInternal: {fileID: 2112979131}
 --- !u!1001 &1223985686
 Prefab:
   m_ObjectHideFlags: 0
@@ -1013,26 +983,6 @@ Prefab:
       propertyPath: p1Cam
       value: 
       objectReference: {fileID: 1077536834}
-    - target: {fileID: 114162107767341776, guid: a9f444d8742d93b4c82f33b829677308,
-        type: 2}
-      propertyPath: fireEffect
-      value: 
-      objectReference: {fileID: 1078604995}
-    - target: {fileID: 114162107767341776, guid: a9f444d8742d93b4c82f33b829677308,
-        type: 2}
-      propertyPath: fire
-      value: 
-      objectReference: {fileID: 1078604998}
-    - target: {fileID: 114021082481015968, guid: a9f444d8742d93b4c82f33b829677308,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114021082481015968, guid: a9f444d8742d93b4c82f33b829677308,
-        type: 2}
-      propertyPath: turnSpeed
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9f444d8742d93b4c82f33b829677308, type: 2}
   m_IsPrefabParent: 0
@@ -1133,12 +1083,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114918187363258636, guid: 664d4f2e90cf360469a0fdf84650c705,
+    - target: {fileID: 114337683758123520, guid: 664d4f2e90cf360469a0fdf84650c705,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 322447263}
-    - target: {fileID: 114337683758123520, guid: 664d4f2e90cf360469a0fdf84650c705,
+    - target: {fileID: 114918187363258636, guid: 664d4f2e90cf360469a0fdf84650c705,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

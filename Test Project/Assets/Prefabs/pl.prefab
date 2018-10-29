@@ -1308,12 +1308,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1727581317181658}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e41a61ab8d9cf74bb37de6094f62b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 1
+  turnSpeed: 5
 --- !u!114 &114162107767341776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1333,6 +1333,7 @@ MonoBehaviour:
   boostSlider: {fileID: 0}
   V: 0
   p1Cam: {fileID: 0}
+  fire: {fileID: 198326464413497322}
 --- !u!114 &114515612532508888
 MonoBehaviour:
   m_ObjectHideFlags: 1
