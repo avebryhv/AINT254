@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - jump_Panel
+  - Fire
+  - player_ring
   layers:
   - Default
   - TransparentFX

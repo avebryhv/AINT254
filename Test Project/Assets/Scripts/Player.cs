@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
     public float V;
     public Camera p1Cam;
     public ParticleSystem fire;
+    public ParticleSystem boost;
+    public ParticleSystem glow;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -31,17 +33,26 @@ public class Player : MonoBehaviour {
         //float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         //transform.Translate(0, 0, vertical);
 
+        if (Input.GetKeyDown("w"))
+        {
+            glow.Play();
+        }
         if (Input.GetKey("w"))
         {
             if (charge < 200)
             {
                 charge += 1 * Time.deltaTime * 120;
             }
-            
+            var main = glow.main;
+            main.startSpeed = main.startSpeed = (charge / 200 * 12);
             //rb.AddForce(transform.forward * thrust);
         }
         if (Input.GetKeyUp("w"))
         {
+            var main = boost.main;
+            main.startSpeed = (charge / 200 * 12) + 3;
+            boost.Play();
+            glow.Stop();
             rb.AddForce(transform.forward * charge * thrust);
             charge = 0;
         }
