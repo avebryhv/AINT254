@@ -72,7 +72,7 @@ public class Player : MonoBehaviour {
         V = rb.velocity.magnitude;
         if (V >= 30)
         {
-            p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60 + V - 30, Time.deltaTime);
+            p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60 + (V * 1.5f) - 30, Time.deltaTime);
             fire.Play();
         }
         else
