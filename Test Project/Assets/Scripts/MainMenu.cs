@@ -27,8 +27,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void TwoPlayer()
-    {
-        PlayerPrefs.SetInt("Players", 2);
+    {        
         RulesSelect();
     }
 

@@ -12,6 +12,7 @@ public class RulesSet : MonoBehaviour {
     int selectedStage;
     public Text timeText;
     public Text stageText;
+    public Text p2Text;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,9 @@ public class RulesSet : MonoBehaviour {
         stageSelect = new string[] { "CircleArena", "HoleArena" };
         selectedStage = 0;
         stageText.text = stageSelect[selectedStage];
-	}
+        PlayerPrefs.SetInt("Players", 2);
+        p2Text.text = "Human";
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -61,6 +64,18 @@ public class RulesSet : MonoBehaviour {
             selectedStage += -1;
             stageText.text = stageSelect[selectedStage];
         }
+    }
+
+    public void p2Human()
+    {
+        PlayerPrefs.SetInt("Players", 2);
+        p2Text.text = "Human";
+    }
+
+    public void p2CPU()
+    {
+        PlayerPrefs.SetInt("Players", 1);
+        p2Text.text = "CPU";
     }
 
     public void StartGame()

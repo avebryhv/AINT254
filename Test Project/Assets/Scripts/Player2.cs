@@ -26,11 +26,11 @@ public class Player2 : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         if (PlayerPrefs.GetInt("Players") == 1)
         {
-            AI = true;
+            AI = true;            
         }
         else
         {
-            AI = false;
+            AI = false;            
         }
     }
 

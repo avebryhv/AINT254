@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     void Update()
