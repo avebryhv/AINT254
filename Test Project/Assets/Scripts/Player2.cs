@@ -15,6 +15,8 @@ public class Player2 : MonoBehaviour {
     public float V;
     public Camera p2Cam;
     public ParticleSystem fire;
+    public ParticleSystem boost;
+    public ParticleSystem glow;
 
     //AI only variables
     public bool AI = false;
@@ -45,11 +47,20 @@ public class Player2 : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
             charge += 1 * Time.deltaTime * 120;
+            
+            var main = glow.main;
+            main.startSpeed = main.startSpeed = ((charge + 60) / 200 * 12);
+            
             if (charge > chargeLimit)
             {
+                var boostMain = boost.main;
+                boostMain.startSpeed = (charge / 200 * 12) + 3;
+                boost.Play();
+                glow.Stop();
                 rb.AddForce(transform.forward * charge * thrust);
                 charge = -60;
                 chargeLimit = Random.Range(60, 100);
+                glow.Play();
             }
         }
         else
@@ -60,15 +71,25 @@ public class Player2 : MonoBehaviour {
             //float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
             //transform.Translate(0, 0, vertical);
 
+            if (Input.GetKeyDown("up"))
+            {
+                glow.Play();
+            }
             if (Input.GetKey("up"))
             {
                 if (charge < 200)
                 {
                     charge += 1 * Time.deltaTime * 120;
                 }
+                var main = glow.main;
+                main.startSpeed = main.startSpeed = (charge / 200 * 12);
             }
             if (Input.GetKeyUp("up"))
             {
+                var main = boost.main;
+                main.startSpeed = (charge / 200 * 12) + 3;
+                boost.Play();
+                glow.Stop();
                 rb.AddForce(transform.forward * charge * thrust);
                 charge = 0;
             }
