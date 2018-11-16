@@ -45,4 +45,9 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene("Rules Select");
     }
+
+    public void LineArena()
+    {
+        SceneManager.LoadScene("LineArena");
+    }
 }

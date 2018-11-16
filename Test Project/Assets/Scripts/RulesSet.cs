@@ -9,17 +9,20 @@ public class RulesSet : MonoBehaviour {
 
     int timeLimit;
     string[] stageSelect;
+    public Sprite[] backgroundImages;
     int selectedStage;
     public Text timeText;
     public Text stageText;
     public Text p2Text;
+    public Image background;
 
 	// Use this for initialization
 	void Start () {
         timeLimit = 60;
         timeText.text = timeLimit.ToString();
-        stageSelect = new string[] { "CircleArena", "HoleArena" };
+        stageSelect = new string[] { "CircleArena", "LineArena"};
         selectedStage = 0;
+        background.sprite = backgroundImages[selectedStage];
         stageText.text = stageSelect[selectedStage];
         PlayerPrefs.SetInt("Players", 2);
         p2Text.text = "Human";
@@ -54,6 +57,7 @@ public class RulesSet : MonoBehaviour {
         {
             selectedStage += 1;
             stageText.text = stageSelect[selectedStage];
+            background.sprite = backgroundImages[selectedStage];
         }
     }
 
@@ -63,6 +67,7 @@ public class RulesSet : MonoBehaviour {
         {
             selectedStage += -1;
             stageText.text = stageSelect[selectedStage];
+            background.sprite = backgroundImages[selectedStage];
         }
     }
 
