@@ -9,6 +9,7 @@ public class PlayerCollide : MonoBehaviour {
     int shakeCount = 0;
     public int shakes = 30;
     public GameObject player;
+    public GameObject ring;
     Rigidbody rb;
     
 
@@ -26,8 +27,8 @@ public class PlayerCollide : MonoBehaviour {
         }
         else
         {
-            playerCam.transform.localPosition = new Vector3();
-            //Vector3.Lerp(playerCam.transform.localPosition, new Vector3(0,0,0), Time.deltaTime);
+            //playerCam.transform.localPosition = new Vector3();
+            playerCam.transform.localPosition = Vector3.Lerp(playerCam.transform.localPosition, new Vector3(0,0,0), Time.deltaTime);
         }
 	}
 
@@ -52,7 +53,8 @@ public class PlayerCollide : MonoBehaviour {
             {
                 shakeCount = Mathf.FloorToInt(rb.velocity.magnitude);
             }
-            
+
+            ring.GetComponent<Ring>().turnSpeed = 0.0f;
             
         }
     }

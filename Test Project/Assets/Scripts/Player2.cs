@@ -17,6 +17,8 @@ public class Player2 : MonoBehaviour {
     public ParticleSystem fire;
     public ParticleSystem boost;
     public ParticleSystem glow;
+    AudioSource audioPlayer;
+    public AudioSource boostPlayer;
 
     //AI only variables
     public bool AI = false;
@@ -26,6 +28,7 @@ public class Player2 : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioPlayer = GetComponent<AudioSource>();
         if (PlayerPrefs.GetInt("Players") == 1)
         {
             AI = true;            
@@ -73,6 +76,7 @@ public class Player2 : MonoBehaviour {
 
             if (Input.GetKeyDown("up"))
             {
+                boostPlayer.Play();
                 glow.Play();
             }
             if (Input.GetKey("up"))
@@ -81,16 +85,23 @@ public class Player2 : MonoBehaviour {
                 {
                     charge += 1 * Time.deltaTime * 120;
                 }
+                p2Cam.fieldOfView = Mathf.Lerp(p2Cam.fieldOfView, 60 - (charge / 20), Time.deltaTime);
                 var main = glow.main;
                 main.startSpeed = main.startSpeed = (charge / 200 * 12);
             }
             if (Input.GetKeyUp("up"))
             {
+                boostPlayer.Stop();
+                audioPlayer.Play();
                 var main = boost.main;
                 main.startSpeed = (charge / 200 * 12) + 3;
                 boost.Play();
                 glow.Stop();
                 rb.AddForce(transform.forward * charge * thrust);
+                charge = 0;
+            }
+            if (Input.GetKeyDown("down"))
+            {
                 charge = 0;
             }
         }

@@ -19,10 +19,13 @@ public class Player : MonoBehaviour {
     public Camera p1Cam;
     public ParticleSystem fire;
     public ParticleSystem boost;
-    public ParticleSystem glow;
+    public ParticleSystem glow;    
+    AudioSource audioPlayer;
+    public AudioSource boostPlayer;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
+        audioPlayer = GetComponent<AudioSource>();
         
     }
 
@@ -36,6 +39,7 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown("w"))
         {
+            boostPlayer.Play();
             glow.Play();
         }
         if (Input.GetKey("w"))
@@ -44,12 +48,15 @@ public class Player : MonoBehaviour {
             {
                 charge += 1 * Time.deltaTime * 120;
             }
+            p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60 - (charge / 20), Time.deltaTime);
             var main = glow.main;
             main.startSpeed = main.startSpeed = (charge / 200 * 12);
             //rb.AddForce(transform.forward * thrust);
         }
         if (Input.GetKeyUp("w"))
         {
+            boostPlayer.Stop();
+            audioPlayer.Play();
             var main = boost.main;
             main.startSpeed = (charge / 200 * 12) + 3;
             boost.Play();
@@ -76,7 +83,7 @@ public class Player : MonoBehaviour {
             p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60 + (V * 1.5f) - 30, Time.deltaTime);
             fire.Play();
         }
-        else
+        else if(charge == 0)
         {
             p1Cam.fieldOfView = Mathf.Lerp(p1Cam.fieldOfView, 60, Time.deltaTime);
             fire.Stop();
