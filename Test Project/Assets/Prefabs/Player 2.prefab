@@ -905,6 +905,8 @@ MonoBehaviour:
   boost: {fileID: 198497528337350798}
   glow: {fileID: 198381531027763040}
   boostPlayer: {fileID: 82006084966125526}
+  explosionEffect: {fileID: 1439177983057904, guid: 895b72dbd49e55e46b1b8ed836dcf6da,
+    type: 2}
   AI: 0
   player1: {fileID: 0}
 --- !u!114 &114789665062278296

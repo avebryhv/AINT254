@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     public ParticleSystem glow;    
     AudioSource audioPlayer;
     public AudioSource boostPlayer;
+    public GameObject explosionEffect;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal") * turningSpeed * Time.deltaTime;
+        float horizontal = Input.GetAxis("p1Horizontal") * turningSpeed * Time.deltaTime;
         transform.Rotate(0, horizontal * 2, 0);
         //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
         //float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
@@ -66,6 +67,7 @@ public class Player : MonoBehaviour {
         }
         if (transform.position.y < -5)
         {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
             transform.position = new Vector3(0, 5, 0);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;

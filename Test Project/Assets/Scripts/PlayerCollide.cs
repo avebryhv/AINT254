@@ -45,14 +45,7 @@ public class PlayerCollide : MonoBehaviour {
         if (other.gameObject.tag == "player_ring")
         {
             Debug.Log("oof");
-            if (rb.velocity.magnitude > 30)
-            {
-                shakeCount = 30;
-            }
-            else
-            {
-                shakeCount = Mathf.FloorToInt(rb.velocity.magnitude);
-            }
+            shakeCount = 30;
 
             ring.GetComponent<Ring>().turnSpeed = 0.0f;
             
@@ -61,10 +54,13 @@ public class PlayerCollide : MonoBehaviour {
 
     public void ScreenShake()
     {
-        float shakeX = Random.Range(-screenShakeIntensity, screenShakeIntensity);
-        float shakeY = Random.Range(-screenShakeIntensity, screenShakeIntensity);
-        float shakeZ = Random.Range(-screenShakeIntensity, screenShakeIntensity);
+        float shakeAmount = ((rb.velocity.magnitude / 30)) * screenShakeIntensity;
+        if (Random.Range(-1,1) >= 0)
+        {
+            shakeAmount *= -1;
+        }
 
-        playerCam.transform.localPosition += new Vector3(shakeX, shakeY, shakeZ);
+
+        playerCam.transform.localPosition += new Vector3(shakeAmount, shakeAmount, shakeAmount);
     }
 }

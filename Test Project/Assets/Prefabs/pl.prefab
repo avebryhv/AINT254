@@ -1814,6 +1814,8 @@ MonoBehaviour:
   boost: {fileID: 198175280897499504}
   glow: {fileID: 198725407561713032}
   boostPlayer: {fileID: 82542045908898428}
+  explosionEffect: {fileID: 1439177983057904, guid: 895b72dbd49e55e46b1b8ed836dcf6da,
+    type: 2}
 --- !u!114 &114515612532508888
 MonoBehaviour:
   m_ObjectHideFlags: 1
