@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCollide : MonoBehaviour {
 
     public GameObject playerCam;
+    public GameObject sparkEffect;
     public float screenShakeIntensity = 1f;
     int shakeCount = 0;
     public int shakes = 30;
@@ -51,6 +52,7 @@ public class PlayerCollide : MonoBehaviour {
             Debug.Log("oof");
             shakeCount = 30;
             audioPlayer.PlayOneShot(hitSound);
+            Instantiate(sparkEffect, transform.position, transform.rotation);
             ring.GetComponent<Ring>().turnSpeed = 0.0f;
             
         }

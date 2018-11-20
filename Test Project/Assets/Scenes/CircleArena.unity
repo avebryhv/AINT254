@@ -323,6 +323,16 @@ Prefab:
       propertyPath: player1
       value: 
       objectReference: {fileID: 1588826584}
+    - target: {fileID: 114798822258752350, guid: 9ca950e246a9935469321fd32508822a,
+        type: 2}
+      propertyPath: sparkEffect
+      value: 
+      objectReference: {fileID: 1076674013312356, guid: 9e930259a6db97547a7e3d1fbe149c01,
+        type: 2}
+    - target: {fileID: 1802756720294654, guid: 9ca950e246a9935469321fd32508822a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ca950e246a9935469321fd32508822a, type: 2}
   m_IsPrefabParent: 0
@@ -402,7 +412,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &468923752
 GameObject:
@@ -585,7 +595,7 @@ Transform:
   m_LocalScale: {x: 75, y: 1, z: 75}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &623589190
 GameObject:
@@ -709,7 +719,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4682470866001052, guid: a010208a9f82d934693e374500d36b1e, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1824112930091514, guid: a010208a9f82d934693e374500d36b1e, type: 2}
       propertyPath: m_TagString
@@ -1198,7 +1208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4219266665185970, guid: 587e9aa2b306d2847ae1b63b0502a2ef, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114365885893331638, guid: 587e9aa2b306d2847ae1b63b0502a2ef,
         type: 2}
@@ -1509,7 +1519,7 @@ Transform:
   - {fileID: 1863004334}
   - {fileID: 1641260215}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1679255183 stripped
 MonoBehaviour:
@@ -1559,7 +1569,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4156090920579832, guid: d4c9978d4abb5b74281f31075ace8ba3, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114389516183802056, guid: d4c9978d4abb5b74281f31075ace8ba3,
         type: 2}
@@ -1992,6 +2002,12 @@ Prefab:
       propertyPath: p1Cam
       value: 
       objectReference: {fileID: 1077536834}
+    - target: {fileID: 114588916905296076, guid: a9f444d8742d93b4c82f33b829677308,
+        type: 2}
+      propertyPath: sparkEffect
+      value: 
+      objectReference: {fileID: 1076674013312356, guid: 9e930259a6db97547a7e3d1fbe149c01,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9f444d8742d93b4c82f33b829677308, type: 2}
   m_IsPrefabParent: 0

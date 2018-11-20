@@ -116,6 +116,7 @@ public class Player2 : MonoBehaviour {
 
         if (transform.position.y < -5)
         {
+            Time.timeScale = 0.5f;
             SFXPlayer.PlaySound(explosion);
             Instantiate(explosionEffect, transform.position, transform.rotation);
             score++;
@@ -150,7 +151,7 @@ public class Player2 : MonoBehaviour {
     private void Respawn()
     {
         gameObject.SetActive(true);
-
+        Time.timeScale = 1f;
         transform.position = new Vector3(0, 5, 0);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;

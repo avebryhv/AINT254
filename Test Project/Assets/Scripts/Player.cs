@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Player : MonoBehaviour {
 
     private float movementSpeed = 10;
@@ -72,6 +73,7 @@ public class Player : MonoBehaviour {
         if (transform.position.y < -5)
         {
             //audioPlayer.PlayOneShot(explosion);
+            Time.timeScale = 0.5f;
             SFXPlayer.PlaySound(explosion);
             Instantiate(explosionEffect, transform.position, transform.rotation);
             score++;
@@ -110,7 +112,7 @@ public class Player : MonoBehaviour {
     private void Respawn()
     {
         gameObject.SetActive(true);
-
+        Time.timeScale = 1f;
         transform.position = new Vector3(0,5,0);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;

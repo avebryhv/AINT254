@@ -239,6 +239,12 @@ Prefab:
       propertyPath: player1
       value: 
       objectReference: {fileID: 2040380272}
+    - target: {fileID: 114798822258752350, guid: 9ca950e246a9935469321fd32508822a,
+        type: 2}
+      propertyPath: sparkEffect
+      value: 
+      objectReference: {fileID: 1076674013312356, guid: 9e930259a6db97547a7e3d1fbe149c01,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ca950e246a9935469321fd32508822a, type: 2}
   m_IsPrefabParent: 0
@@ -296,6 +302,12 @@ Prefab:
       propertyPath: p1Cam
       value: 
       objectReference: {fileID: 248583036}
+    - target: {fileID: 114588916905296076, guid: a9f444d8742d93b4c82f33b829677308,
+        type: 2}
+      propertyPath: sparkEffect
+      value: 
+      objectReference: {fileID: 1076674013312356, guid: 9e930259a6db97547a7e3d1fbe149c01,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9f444d8742d93b4c82f33b829677308, type: 2}
   m_IsPrefabParent: 0
