@@ -21,13 +21,16 @@ public class Player : MonoBehaviour {
     public ParticleSystem boost;
     public ParticleSystem glow;    
     AudioSource audioPlayer;
+    public AudioClip afterburnerSound;
+    public AudioClip explosion;
     public AudioSource boostPlayer;
     public GameObject explosionEffect;
+    SFXPlayer SFXPlayer;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
         audioPlayer = GetComponent<AudioSource>();
-        
+        SFXPlayer = GameObject.FindGameObjectWithTag("SFX_Player").GetComponent<SFXPlayer>();
     }
 
     void Update()
@@ -57,7 +60,8 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyUp("w"))
         {
             boostPlayer.Stop();
-            audioPlayer.Play();
+            //audioPlayer.Play();
+            SFXPlayer.PlaySound(afterburnerSound);
             var main = boost.main;
             main.startSpeed = (charge / 200 * 12) + 3;
             boost.Play();
@@ -67,12 +71,12 @@ public class Player : MonoBehaviour {
         }
         if (transform.position.y < -5)
         {
+            //audioPlayer.PlayOneShot(explosion);
+            SFXPlayer.PlaySound(explosion);
             Instantiate(explosionEffect, transform.position, transform.rotation);
-            transform.position = new Vector3(0, 5, 0);
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            charge = 0;
             score++;
+            gameObject.SetActive(false);
+            Invoke("Respawn", 1f);
         }
         if (Input.GetKeyDown("s"))
         {
@@ -101,5 +105,16 @@ public class Player : MonoBehaviour {
         {
             rb.AddForce(transform.up * 2000);
         }
+    }
+
+    private void Respawn()
+    {
+        gameObject.SetActive(true);
+
+        transform.position = new Vector3(0,5,0);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        charge = 0;
+        
     }
 }

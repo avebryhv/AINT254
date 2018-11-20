@@ -10,12 +10,15 @@ public class PlayerCollide : MonoBehaviour {
     public int shakes = 30;
     public GameObject player;
     public GameObject ring;
+    AudioSource audioPlayer;
+    public AudioClip hitSound;
     Rigidbody rb;
     
 
 	// Use this for initialization
 	void Start () {
         rb = player.GetComponent<Rigidbody>();
+        audioPlayer = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +30,7 @@ public class PlayerCollide : MonoBehaviour {
         }
         else
         {
+            
             //playerCam.transform.localPosition = new Vector3();
             playerCam.transform.localPosition = Vector3.Lerp(playerCam.transform.localPosition, new Vector3(0,0,0), Time.deltaTime);
         }
@@ -46,7 +50,7 @@ public class PlayerCollide : MonoBehaviour {
         {
             Debug.Log("oof");
             shakeCount = 30;
-
+            audioPlayer.PlayOneShot(hitSound);
             ring.GetComponent<Ring>().turnSpeed = 0.0f;
             
         }

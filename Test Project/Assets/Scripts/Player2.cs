@@ -18,7 +18,10 @@ public class Player2 : MonoBehaviour {
     public ParticleSystem boost;
     public ParticleSystem glow;
     AudioSource audioPlayer;
+    public AudioClip afterburnerSound;
+    public AudioClip explosion;
     public AudioSource boostPlayer;
+    SFXPlayer SFXPlayer;
     public GameObject explosionEffect;
 
     //AI only variables
@@ -30,6 +33,7 @@ public class Player2 : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
         audioPlayer = GetComponent<AudioSource>();
+        SFXPlayer = GameObject.FindGameObjectWithTag("SFX_Player").GetComponent<SFXPlayer>();
         if (PlayerPrefs.GetInt("Players") == 1)
         {
             AI = true;            
@@ -57,6 +61,7 @@ public class Player2 : MonoBehaviour {
             
             if (charge > chargeLimit)
             {
+                audioPlayer.PlayOneShot(afterburnerSound);
                 var boostMain = boost.main;
                 boostMain.startSpeed = (charge / 200 * 12) + 3;
                 boost.Play();
@@ -93,7 +98,7 @@ public class Player2 : MonoBehaviour {
             if (Input.GetKeyUp("up"))
             {
                 boostPlayer.Stop();
-                audioPlayer.Play();
+                audioPlayer.PlayOneShot(afterburnerSound);
                 var main = boost.main;
                 main.startSpeed = (charge / 200 * 12) + 3;
                 boost.Play();
@@ -111,12 +116,11 @@ public class Player2 : MonoBehaviour {
 
         if (transform.position.y < -5)
         {
+            SFXPlayer.PlaySound(explosion);
             Instantiate(explosionEffect, transform.position, transform.rotation);
-            transform.position = new Vector3(0, 5, 0);
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            charge = 0;
             score++;
+            gameObject.SetActive(false);
+            Invoke("Respawn", 1f);
         }
 
         V = rb.velocity.magnitude;
@@ -141,5 +145,16 @@ public class Player2 : MonoBehaviour {
         {
             rb.AddForce(transform.up * 2000);
         }
+    }
+
+    private void Respawn()
+    {
+        gameObject.SetActive(true);
+
+        transform.position = new Vector3(0, 5, 0);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        charge = 0;
+        
     }
 }

@@ -24,8 +24,8 @@ public class RulesSet : MonoBehaviour {
         selectedStage = 0;
         background.sprite = backgroundImages[selectedStage];
         stageText.text = stageSelect[selectedStage];
-        PlayerPrefs.SetInt("Players", 2);
-        p2Text.text = "Human";
+        PlayerPrefs.SetInt("Players", 1);
+        p2Text.text = "CPU";
     }
 	
 	// Update is called once per frame
