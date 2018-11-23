@@ -51,7 +51,7 @@ public class Player2 : MonoBehaviour {
             //Vector3.RotateTowards(transform.right, player1.transform.position, turningSpeed * Time.deltaTime, 0.0f);
             //Quaternion.RotateTowards(transform.rotation, player1.transform, turningSpeed * Time.deltaTime);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation((player1.transform.position - transform.position).normalized), Time.deltaTime * 10);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation((player1.transform.position - transform.position).normalized), Time.deltaTime * 6);
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
             charge += 1 * Time.deltaTime * 120;
