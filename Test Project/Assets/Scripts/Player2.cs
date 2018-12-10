@@ -46,7 +46,7 @@ public class Player2 : MonoBehaviour {
 
     void Update()
     {
-        if (AI) //Sets behaviour of computer controlled player
+        if (AI && player1.GetComponent<Player>().inArena) //Sets behaviour of computer controlled player
         {
             //Vector3.RotateTowards(transform.right, player1.transform.position, turningSpeed * Time.deltaTime, 0.0f);
             //Quaternion.RotateTowards(transform.rotation, player1.transform, turningSpeed * Time.deltaTime);
@@ -106,6 +106,7 @@ public class Player2 : MonoBehaviour {
                 rb.AddForce(transform.forward * charge * thrust);
                 charge = 0;
             }
+            
             if (Input.GetKeyDown("down"))
             {
                 charge = 0;
@@ -116,7 +117,6 @@ public class Player2 : MonoBehaviour {
 
         if (transform.position.y < -5)
         {
-            Time.timeScale = 0.5f;
             SFXPlayer.PlaySound(explosion);
             Instantiate(explosionEffect, transform.position, transform.rotation);
             score++;
@@ -151,7 +151,6 @@ public class Player2 : MonoBehaviour {
     private void Respawn()
     {
         gameObject.SetActive(true);
-        Time.timeScale = 1f;
         transform.position = new Vector3(0, 5, 0);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;

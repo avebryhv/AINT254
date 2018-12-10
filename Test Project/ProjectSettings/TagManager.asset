@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - player_ring
   - SFX_Player
+  - ring_boundary
   layers:
   - Default
   - TransparentFX

@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
     public AudioSource boostPlayer;
     public GameObject explosionEffect;
     SFXPlayer SFXPlayer;
+    public bool inArena;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -70,10 +71,15 @@ public class Player : MonoBehaviour {
             rb.AddForce(transform.forward * charge * thrust);
             charge = 0;
         }
+        if (Input.GetKeyDown("q") && charge > 190)
+        {
+            rb.AddForce(transform.up * charge * thrust / 10);
+            Debug.Log("boosto");
+            charge = 0;
+        }
         if (transform.position.y < -5)
         {
             //audioPlayer.PlayOneShot(explosion);
-            Time.timeScale = 0.5f;
             SFXPlayer.PlaySound(explosion);
             Instantiate(explosionEffect, transform.position, transform.rotation);
             score++;
@@ -107,12 +113,25 @@ public class Player : MonoBehaviour {
         {
             rb.AddForce(transform.up * 2000);
         }
+
+        if (other.gameObject.tag == "ring_boundary")
+        {
+            inArena = true;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "ring_boundary")
+        {
+            inArena = false;
+        }
     }
 
     private void Respawn()
     {
         gameObject.SetActive(true);
-        Time.timeScale = 1f;
         transform.position = new Vector3(0,5,0);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
