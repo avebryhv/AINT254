@@ -151,7 +151,7 @@ public class Player2 : MonoBehaviour {
     private void Respawn()
     {
         gameObject.SetActive(true);
-        transform.position = new Vector3(0, 5, 0);
+        transform.position = new Vector3(0,2,20);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         charge = 0;

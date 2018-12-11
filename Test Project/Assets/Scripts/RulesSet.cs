@@ -20,7 +20,7 @@ public class RulesSet : MonoBehaviour {
 	void Start () {
         timeLimit = 60;
         timeText.text = timeLimit.ToString();
-        stageSelect = new string[] { "CircleArena", "LineArena"};
+        stageSelect = new string[] { "CircleArena", "LineArena", "FireArena"};
         selectedStage = 0;
         background.sprite = backgroundImages[selectedStage];
         stageText.text = stageSelect[selectedStage];
