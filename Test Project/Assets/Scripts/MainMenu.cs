@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+    public GameObject helpScreen;
+    public GameObject creditsScreen;
+
 	// Use this for initialization
 	void Start () {
-		
+        helpScreen.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -50,4 +53,31 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene("LineArena");
     }
+
+    public void ShowHelp()
+    {
+        helpScreen.SetActive(true);
+    }
+
+    public void HideHelp()
+    {
+        helpScreen.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ShowCredits()
+    {
+        creditsScreen.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        creditsScreen.SetActive(false);
+    }
+
+
 }

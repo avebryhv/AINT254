@@ -72,7 +72,7 @@ public class UI : MonoBehaviour {
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("CircleArena");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()

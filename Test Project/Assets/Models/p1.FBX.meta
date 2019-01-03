@@ -10,6 +10,10 @@ ModelImporter:
     400002: Cone001
     400004: //RootNode
     2100000: No Name
+    2100002: 'Material #10'
+    2100004: 'Material #11'
+    2100006: 'Material #20'
+    2100008: 'Material #9'
     2300000: Box001
     2300002: Cone001
     3300000: Box001

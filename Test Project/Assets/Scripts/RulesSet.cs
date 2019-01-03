@@ -9,8 +9,10 @@ public class RulesSet : MonoBehaviour {
 
     int timeLimit;
     string[] stageSelect;
+    string[] p2ModeText;
     public Sprite[] backgroundImages;
     int selectedStage;
+    int p2Mode;
     public Text timeText;
     public Text stageText;
     public Text p2Text;
@@ -20,12 +22,14 @@ public class RulesSet : MonoBehaviour {
 	void Start () {
         timeLimit = 60;
         timeText.text = timeLimit.ToString();
-        stageSelect = new string[] { "CircleArena", "LineArena", "FireArena"};
+        stageSelect = new string[] { "CircleArena", "LineArena", "FireArena", "SnowArena"};
+        p2ModeText = new string[] { "Human", "CPU (Easy)", "CPU (Hard)" };
         selectedStage = 0;
+        p2Mode = 0;
         background.sprite = backgroundImages[selectedStage];
         stageText.text = stageSelect[selectedStage];
         PlayerPrefs.SetInt("Players", 1);
-        p2Text.text = "CPU";
+        p2Text.text = p2ModeText[p2Mode];
     }
 	
 	// Update is called once per frame
@@ -44,7 +48,7 @@ public class RulesSet : MonoBehaviour {
 
     public void TimeDecrease()
     {
-        if (timeLimit > 10)
+        if (timeLimit > 0)
         {
             timeLimit += -10;
             timeText.text = timeLimit.ToString();
@@ -71,21 +75,32 @@ public class RulesSet : MonoBehaviour {
         }
     }
 
-    public void p2Human()
+    public void p2Up()
     {
-        PlayerPrefs.SetInt("Players", 2);
-        p2Text.text = "Human";
+        if (p2Mode < p2ModeText.Length - 1)
+        {
+            p2Mode += 1;
+            p2Text.text = p2ModeText[p2Mode];            
+        }
+        //PlayerPrefs.SetInt("Players", 2);
+        //p2Text.text = "Human";
     }
 
-    public void p2CPU()
+    public void p2Down()
     {
-        PlayerPrefs.SetInt("Players", 1);
-        p2Text.text = "CPU";
+        if (p2Mode > 0)
+        {
+            p2Mode -= 1;
+            p2Text.text = p2ModeText[p2Mode];
+        }
+        //PlayerPrefs.SetInt("Players", 1);
+        //p2Text.text = "CPU";
     }
 
     public void StartGame()
     {
         PlayerPrefs.SetInt("TimeLimit", timeLimit);
+        PlayerPrefs.SetInt("p2Mode", p2Mode);
         SceneManager.LoadScene(stageSelect[selectedStage]);
     }
 

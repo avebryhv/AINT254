@@ -27,14 +27,17 @@ public class Player2 : MonoBehaviour {
     //AI only variables
     public bool AI = false;
     public GameObject player1;
-    int chargeLimit = 100;
+    int chargeLimit = 170;
+    int AIMode = 0;
+    public float p1dist;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioPlayer = GetComponent<AudioSource>();
         SFXPlayer = GameObject.FindGameObjectWithTag("SFX_Player").GetComponent<SFXPlayer>();
-        if (PlayerPrefs.GetInt("Players") == 1)
+        AIMode = PlayerPrefs.GetInt("p2Mode");
+        if (AIMode > 0)
         {
             AI = true;            
         }
@@ -46,18 +49,25 @@ public class Player2 : MonoBehaviour {
 
     void Update()
     {
+        p1dist = Vector3.Distance(transform.position, player1.transform.position);
+        //AI INSTRUCTIONS
         if (AI && player1.GetComponent<Player>().inArena) //Sets behaviour of computer controlled player
         {
             //Vector3.RotateTowards(transform.right, player1.transform.position, turningSpeed * Time.deltaTime, 0.0f);
             //Quaternion.RotateTowards(transform.rotation, player1.transform, turningSpeed * Time.deltaTime);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation((player1.transform.position - transform.position).normalized), Time.deltaTime * 6);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation((player1.transform.position - transform.position).normalized), Time.deltaTime * (4 * AIMode));
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
             charge += 1 * Time.deltaTime * 120;
             
             var main = glow.main;
-            main.startSpeed = main.startSpeed = ((charge + 60) / 200 * 12);
+            main.startSpeed = main.startSpeed = ((charge) / 200 * 12);
+
+            if (p1dist < 30 && AIMode == 2)
+            {
+                chargeLimit = (int)p1dist * 4;
+            }
             
             if (charge > chargeLimit)
             {
@@ -67,8 +77,8 @@ public class Player2 : MonoBehaviour {
                 boost.Play();
                 glow.Stop();
                 rb.AddForce(transform.forward * charge * thrust);
-                charge = -60;
-                chargeLimit = Random.Range(60, 100);
+                charge = (-120 + AIMode * 60);
+                chargeLimit = Random.Range(90, 170);
                 glow.Play();
             }
         }
@@ -80,12 +90,12 @@ public class Player2 : MonoBehaviour {
             //float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
             //transform.Translate(0, 0, vertical);
 
-            if (Input.GetKeyDown("up"))
+            if (Input.GetKeyDown(KeyCode.Keypad8))
             {
                 boostPlayer.Play();
                 glow.Play();
             }
-            if (Input.GetKey("up"))
+            if (Input.GetKey(KeyCode.Keypad8))
             {
                 if (charge < 200)
                 {
@@ -95,7 +105,7 @@ public class Player2 : MonoBehaviour {
                 var main = glow.main;
                 main.startSpeed = main.startSpeed = (charge / 200 * 12);
             }
-            if (Input.GetKeyUp("up"))
+            if (Input.GetKeyUp(KeyCode.Keypad8))
             {
                 boostPlayer.Stop();
                 audioPlayer.PlayOneShot(afterburnerSound);
@@ -106,8 +116,13 @@ public class Player2 : MonoBehaviour {
                 rb.AddForce(transform.forward * charge * thrust);
                 charge = 0;
             }
-            
-            if (Input.GetKeyDown("down"))
+            if (Input.GetKeyDown(KeyCode.Keypad7) && charge > 190)
+            {
+                rb.AddForce(transform.up * charge * thrust / 10);
+                Debug.Log("boosto");
+                charge = 0;
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad5))
             {
                 charge = 0;
             }

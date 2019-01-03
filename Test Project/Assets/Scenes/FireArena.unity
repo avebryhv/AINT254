@@ -2290,6 +2290,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114914108380388678, guid: 52163b4242e4a974d89292ee4d4f5225,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 322447263}
+    - target: {fileID: 114914108380388678, guid: 52163b4242e4a974d89292ee4d4f5225,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAgain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52163b4242e4a974d89292ee4d4f5225, type: 2}
   m_IsPrefabParent: 0

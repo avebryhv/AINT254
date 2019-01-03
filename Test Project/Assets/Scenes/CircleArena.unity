@@ -303,11 +303,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114798822258752350, guid: 9ca950e246a9935469321fd32508822a,
-        type: 2}
-      propertyPath: playerCam
-      value: 
-      objectReference: {fileID: 1686607400}
     - target: {fileID: 114477474128252184, guid: 9ca950e246a9935469321fd32508822a,
         type: 2}
       propertyPath: boostSlider
@@ -325,14 +320,9 @@ Prefab:
       objectReference: {fileID: 1588826584}
     - target: {fileID: 114798822258752350, guid: 9ca950e246a9935469321fd32508822a,
         type: 2}
-      propertyPath: sparkEffect
+      propertyPath: playerCam
       value: 
-      objectReference: {fileID: 1076674013312356, guid: 9e930259a6db97547a7e3d1fbe149c01,
-        type: 2}
-    - target: {fileID: 1802756720294654, guid: 9ca950e246a9935469321fd32508822a, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1686607400}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ca950e246a9935469321fd32508822a, type: 2}
   m_IsPrefabParent: 0
@@ -720,10 +710,6 @@ Prefab:
     - target: {fileID: 4682470866001052, guid: a010208a9f82d934693e374500d36b1e, type: 2}
       propertyPath: m_RootOrder
       value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1824112930091514, guid: a010208a9f82d934693e374500d36b1e, type: 2}
-      propertyPath: m_TagString
-      value: SFX_Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a010208a9f82d934693e374500d36b1e, type: 2}
@@ -2361,11 +2347,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114588916905296076, guid: a9f444d8742d93b4c82f33b829677308,
-        type: 2}
-      propertyPath: playerCam
-      value: 
-      objectReference: {fileID: 821326221}
     - target: {fileID: 114162107767341776, guid: a9f444d8742d93b4c82f33b829677308,
         type: 2}
       propertyPath: boostSlider
@@ -2378,14 +2359,9 @@ Prefab:
       objectReference: {fileID: 1077536834}
     - target: {fileID: 114588916905296076, guid: a9f444d8742d93b4c82f33b829677308,
         type: 2}
-      propertyPath: sparkEffect
+      propertyPath: playerCam
       value: 
-      objectReference: {fileID: 1076674013312356, guid: 9e930259a6db97547a7e3d1fbe149c01,
-        type: 2}
-    - target: {fileID: 1139547046987550, guid: a9f444d8742d93b4c82f33b829677308, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 821326221}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9f444d8742d93b4c82f33b829677308, type: 2}
   m_IsPrefabParent: 0
