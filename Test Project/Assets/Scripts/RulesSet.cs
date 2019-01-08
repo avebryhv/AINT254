@@ -17,6 +17,8 @@ public class RulesSet : MonoBehaviour {
     public Text stageText;
     public Text p2Text;
     public Image background;
+    AudioSource Audioplayer;
+    public AudioClip noise;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +32,8 @@ public class RulesSet : MonoBehaviour {
         stageText.text = stageSelect[selectedStage];
         PlayerPrefs.SetInt("Players", 1);
         p2Text.text = p2ModeText[p2Mode];
+        Audioplayer = GetComponent<AudioSource>();
+        
     }
 	
 	// Update is called once per frame
@@ -43,6 +47,7 @@ public class RulesSet : MonoBehaviour {
         {
             timeLimit += 10;
             timeText.text = timeLimit.ToString();
+            Audioplayer.PlayOneShot(noise);
         }
     }
 
@@ -52,6 +57,7 @@ public class RulesSet : MonoBehaviour {
         {
             timeLimit += -10;
             timeText.text = timeLimit.ToString();
+            Audioplayer.PlayOneShot(noise);
         }
     }
 
@@ -62,6 +68,7 @@ public class RulesSet : MonoBehaviour {
             selectedStage += 1;
             stageText.text = stageSelect[selectedStage];
             background.sprite = backgroundImages[selectedStage];
+            Audioplayer.PlayOneShot(noise);
         }
     }
 
@@ -72,6 +79,7 @@ public class RulesSet : MonoBehaviour {
             selectedStage += -1;
             stageText.text = stageSelect[selectedStage];
             background.sprite = backgroundImages[selectedStage];
+            Audioplayer.PlayOneShot(noise);
         }
     }
 
@@ -80,7 +88,8 @@ public class RulesSet : MonoBehaviour {
         if (p2Mode < p2ModeText.Length - 1)
         {
             p2Mode += 1;
-            p2Text.text = p2ModeText[p2Mode];            
+            p2Text.text = p2ModeText[p2Mode];
+            Audioplayer.PlayOneShot(noise);
         }
         //PlayerPrefs.SetInt("Players", 2);
         //p2Text.text = "Human";
@@ -92,6 +101,7 @@ public class RulesSet : MonoBehaviour {
         {
             p2Mode -= 1;
             p2Text.text = p2ModeText[p2Mode];
+            Audioplayer.PlayOneShot(noise);
         }
         //PlayerPrefs.SetInt("Players", 1);
         //p2Text.text = "CPU";
