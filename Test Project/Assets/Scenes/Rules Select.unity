@@ -1807,6 +1807,7 @@ MonoBehaviour:
   stageText: {fileID: 1013554150}
   p2Text: {fileID: 377085845}
   background: {fileID: 1351332984}
+  noise: {fileID: 8300000, guid: 10ec6f1217a20c749813e76d70a62eed, type: 3}
 --- !u!82 &1693118926
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1935,7 +1936,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -176, y: 123}
-  m_SizeDelta: {x: 120.89, y: 30.3}
+  m_SizeDelta: {x: 230.97, y: 30.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715055317
 MonoBehaviour:
