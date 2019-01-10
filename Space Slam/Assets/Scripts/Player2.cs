@@ -57,16 +57,16 @@ public class Player2 : MonoBehaviour {
             //Quaternion.RotateTowards(transform.rotation, player1.transform, turningSpeed * Time.deltaTime);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation((player1.transform.position - transform.position).normalized), Time.deltaTime * (4 * AIMode));
-            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0); //Rotates to face player 1
 
-            charge += 1 * Time.deltaTime * 120;
+            charge += 1 * Time.deltaTime * 120; //Constantly charges
             
             var main = glow.main;
             main.startSpeed = main.startSpeed = ((charge) / 200 * 12);
 
-            if (p1dist < 30 && AIMode == 2)
+            if (p1dist < 30 && AIMode == 2) 
             {
-                chargeLimit = (int)p1dist * 4;
+                chargeLimit = (int)p1dist * 4; //On hard mode, scales charging time based on distance to player 1 - boosts more often when close
             }
             
             if (charge > chargeLimit)
@@ -77,7 +77,7 @@ public class Player2 : MonoBehaviour {
                 boost.Play();
                 glow.Stop();
                 rb.AddForce(transform.forward * charge * thrust);
-                charge = (-120 + AIMode * 60);
+                charge = (-120 + AIMode * 60); //Charge starts negative, to simulate a delay before the player starts charging again
                 chargeLimit = Random.Range(90, 170);
                 glow.Play();
             }

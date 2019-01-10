@@ -28,19 +28,19 @@ public class PauseMenu : MonoBehaviour {
         }
 	}
 
-    void Pause()
+    void Pause() //Pauses the game
     {
         isPaused = true;
-        Time.timeScale = 0;
-        gameUI.enabled = false;
-        pauseMenu.enabled = true;
+        Time.timeScale = 0; //Prevents movement
+        gameUI.enabled = false; //Toggles UI visibility
+        pauseMenu.enabled = true; //Toggles menu visibility
     }
 
     void UnPause()
     {
         isPaused = false;
-        Time.timeScale = 1;
-        gameUI.enabled = true;
-        pauseMenu.enabled = false;
+        Time.timeScale = 1; //Reenables movement
+        gameUI.enabled = true; //Toggles UI visibility
+        pauseMenu.enabled = false; //Toggles menu visibility
     }
 }

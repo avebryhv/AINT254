@@ -44,11 +44,11 @@ public class UI : MonoBehaviour {
         {
             
 
-            if (player1.GetComponent<Player>().score == player2.GetComponent<Player2>().score)
+            if (player1.GetComponent<Player>().score == player2.GetComponent<Player2>().score) //Enters sudden death mode if player scores are equal
             {
                 timeText.text = "Sudden Death";
             }
-            else
+            else //Will also trigger as soon as a player scores in sudden death
             {
                 Time.timeScale = 0;
                 gameEnd.enabled = true;
